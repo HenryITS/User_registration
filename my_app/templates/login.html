@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+    <h3>Sign In</h3>
+    <form class="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}
+            {{ form.username(size=32) }}
+            {% for error in form.username.errors  %}
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}
+            {{ form.password(size=32) }}
+            {% for error in form.password.errors  %}
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.remember_me() }}
+            {{ form.remember_me.label }}
+        </p>
+        <p>
+            {{ form.submit(class="btn btn-outline-primary") }}
+        </p>
+    </form>
+{% endblock %}
